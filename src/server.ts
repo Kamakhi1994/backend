@@ -3,6 +3,7 @@ import cors from "cors";
 import { sample_food, sample_tag, sample_user } from "./data";
 import jwt from "jsonwebtoken";
 
+
 const app=express();
 
 app.use(express.json());
@@ -31,13 +32,15 @@ app.get("/api/foods/:foodId",(req,res)=>{
    const foodId= req.params.foodId;
    res.send(sample_food.find(food=>food.id===foodId))
    })
+app.get("/api/users",(req,res)=>{
+    res.send(sample_user);
+})   
 app.post('/api/users/login',(req,res)=>{
     const body=req.body;
-    const user=sample_user.find(users=>{users.email===body.email && users.password===body.password});
-    if(user)
-    res.send(user)
-    else 
-    res.status(400).send("Username or Password is not valid");
+    const email_body=body.email;
+    const password=body.password;
+    const user=sample_user.find(users=>users.email===email_body && users.password===password);
+    res.send(user);
 })   
 
 

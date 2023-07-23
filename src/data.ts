@@ -84,6 +84,7 @@ export const sample_user:any[]=[
   email:"abc@gmail.com",
   password:"1234",
   isAdmin:true },
+  
   { name:"Kamakhi2",
   email:"kamakhi2009@gmail.com",
   password:"123kamakhi",
